@@ -1,0 +1,14 @@
+Login to Google Compute
+Clone from bitbucket
+cd to gstpress
+npm install
+npm run build
+ctrl C
+pm2 start ./src/distServer.js --interpreter ./node_modules/.bin/babel-node
+
+
+
+
+Notes:
+
+1. No need of pm2config.json
