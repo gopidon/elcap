@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link, Switch, Route  } from 'react-router-dom';
 import Home from './Home';
+import Test from './Test';
 
 
 import { Layout, Menu, Affix } from 'antd';
@@ -21,6 +22,9 @@ const FixedMenuLayout = () => (
                     <Menu.Item key="Home">
                         <Link to="/" className="nav-text">Home</Link>
                     </Menu.Item>
+                    <Menu.Item key="Test">
+                        <Link to="/Test" className="nav-text">Test</Link>
+                    </Menu.Item>
                 </Menu>
             </Affix>
         </Header>
@@ -28,6 +32,7 @@ const FixedMenuLayout = () => (
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                 <Switch>
                     <Route exact path="/" component={Home}/>
+                    <Route path="/Test" component={Test}/>
                 </Switch>
             </div>
         </Content>
