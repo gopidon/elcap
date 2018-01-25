@@ -134,8 +134,8 @@ export default class NewsList extends Component
                                 {
                                     filteredUnmatchedData.length>0?
                                         <div style={{margin: 25}}>
-                                            <div>
-                                                <a style={{marginLeft: 5}} target="_blank" href={'http://localhost:5000/data/unmatched.xlsx'}>Download in excel format</a>
+                                            <div style={{marginBottom: 15}}>
+                                                <a style={{marginLeft: 5}} target="_blank" href={'http://35.197.159.241:5000/data/unmatched.xlsx'}>Download in excel format</a>
                                             </div>
                                             <Input.Search
                                                 placeholder="Filter by Customer Name"
@@ -236,8 +236,8 @@ export default class NewsList extends Component
                                 {
                                     filteredMatchedData.length>0?
                                         <div style={{margin: 25}}>
-                                            <div>
-                                                <a style={{marginLeft: 5}} target="_blank" href={'http://localhost:5000/data/matched.xlsx'}>Download in excel format</a>
+                                            <div style={{marginBottom: 15}}>
+                                                <a style={{marginLeft: 5}} target="_blank" href={'http://35.197.159.241:5000/data/matched.xlsx'}>Download in excel format</a>
                                             </div>
                                             <Input.Search
                                                 placeholder="Filter by Customer Name"
@@ -397,7 +397,7 @@ export default class NewsList extends Component
             unmatchedData: [],
             filteredUnmatchedData: []
         })
-        fetch('http://127.0.0.1:5000/', {
+        fetch('http://35.197.159.241:5000', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
