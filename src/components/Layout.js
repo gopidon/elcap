@@ -22,9 +22,9 @@ const FixedMenuLayout = () => (
                     <Menu.Item key="Home">
                         <Link to="/" className="nav-text">Home</Link>
                     </Menu.Item>
-                    <Menu.Item key="Test">
+                    {/*<Menu.Item key="Test">
                         <Link to="/Test" className="nav-text">Test</Link>
-                    </Menu.Item>
+                    </Menu.Item>*/}
                 </Menu>
             </Affix>
         </Header>
