@@ -8,6 +8,7 @@ const { Table, Column, Cell } = require('fixed-data-table-2');
 const TabPane = Tabs.TabPane;
 const {Sider, Content} = Layout;
 const Step = Steps.Step
+import Loading from './widgets/Loading';
 
 export default class NewsList extends Component
 {
@@ -38,7 +39,7 @@ export default class NewsList extends Component
 
     render(){
         const {apisFile, formCFile, matchedData, uploadingApis, uploadingFormC, filteredMatchedData, unmatchedData, filteredUnmatchedData, processing, current} = this.state;
-        //console.log("Unmatched Data:", unmatchedData);
+        console.log("matched Data:", matchedData);
         //console.log(Object.keys(unmatchedData[0]))
         return (
             <Layout>
@@ -89,13 +90,20 @@ export default class NewsList extends Component
                                         formCFile && !uploadingApis?
                                             <div>
                                                 <a target="_blank" style={{marginLeft: 5}} href={formCFile}>FormC File</a>
-                                            </div>:<div/>
+                                            </div>:
+                                            <div>
+                                                <Icon type="loading"/>
+                                            </div>
                                     }
                                     {
                                         apisFile && !uploadingFormC?
                                             <div>
                                                 <a style={{marginLeft: 5}} target="_blank" href={apisFile}>APIS File</a>
-                                            </div>: <div/>
+                                            </div>:
+                                            <div>
+                                                <Icon type="loading"/>
+                                            </div>
+
                                     }
                                 </div>
 
@@ -156,7 +164,7 @@ export default class NewsList extends Component
                                             <Table
                                                 rowHeight={50}
                                                 rowsCount={filteredUnmatchedData.length}
-                                                width={1200}
+                                                width={1100}
                                                 height={500}
                                                 headerHeight={50}
                                                 data={filteredUnmatchedData}
@@ -214,7 +222,7 @@ export default class NewsList extends Component
                                                     fixed={true}
                                                     width={100}
                                                 />
-                                                <Column
+                                                {/*<Column
                                                     header={<Cell>Name</Cell>}
                                                     columnKey="Name"
                                                     cell={({ rowIndex, columnKey, ...props }) =>
@@ -223,10 +231,10 @@ export default class NewsList extends Component
                                                         </Cell>}
                                                     fixed={true}
                                                     width={200}
-                                                />
+                                                />*/}
                                             </Table>
                                         </div>
-                                        :<div>No files processed yet!</div>
+                                        :processing?<Loading/>:<div>No files processed yet!</div>
                                 }
 
                             </div>
@@ -245,7 +253,6 @@ export default class NewsList extends Component
                                                 style={{ width: 200 }}
                                             />
                                             <span style={{display: 'inline-block',width: 100}}/>
-                                            <span style={{display: 'inline-block',width: 200}}/>
                                             <Input.Search
                                                 placeholder="Filter by Passport"
                                                 onSearch={this._filterMatched.bind(this, 'Passport No.')}
@@ -259,7 +266,7 @@ export default class NewsList extends Component
                                             <Table
                                                 rowHeight={50}
                                                 rowsCount={filteredMatchedData.length}
-                                                width={1400}
+                                                width={1000}
                                                 height={500}
                                                 headerHeight={50}
                                                 data={filteredMatchedData}
@@ -283,16 +290,6 @@ export default class NewsList extends Component
                                                         </Cell>}
                                                     fixed={true}
                                                     width={100}
-                                                />
-                                                <Column
-                                                    header={<Cell>Embark-Disembark Port</Cell>}
-                                                    columnKey="Embark-Disembark Port"
-                                                    cell={({ rowIndex, columnKey, ...props }) =>
-                                                        <Cell {...props}>
-                                                            {filteredMatchedData[rowIndex][columnKey]}
-                                                        </Cell>}
-                                                    fixed={true}
-                                                    width={200}
                                                 />
                                                 <Column
                                                     header={<Cell>Passport</Cell>}
@@ -324,7 +321,7 @@ export default class NewsList extends Component
                                                     fixed={true}
                                                     width={100}
                                                 />
-                                                <Column
+                                                {/*<Column
                                                     header={<Cell>Name</Cell>}
                                                     columnKey="Name"
                                                     cell={({ rowIndex, columnKey, ...props }) =>
@@ -333,10 +330,10 @@ export default class NewsList extends Component
                                                         </Cell>}
                                                     fixed={true}
                                                     width={200}
-                                                />
+                                                />*/}
                                             </Table>
                                         </div>
-                                        :<div>No files processed yet!</div>
+                                        :processing?<Loading/>:<div>No files processed yet!</div>
                                 }
 
                             </div>
