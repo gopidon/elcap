@@ -17,8 +17,8 @@ import _ from 'underscore'
 const RadioGroup = Radio.Group;
 const CheckboxGroup = Checkbox.Group;
 
-//const FLASK_APP_URL="http://35.197.159.241:5000";
-const FLASK_APP_URL="http://localhost:5000";
+const FLASK_APP_URL="http://35.197.159.241:5000";
+//const FLASK_APP_URL="http://localhost:5000";
 
 const formCFileHeaders = ["customer_name", "passport_number", "flight_number", "item_description", "quantity"];
 const otherCompareOptions = [{label: 'Customer Name', value:'customer_name'}, {label:'Passport Number', value:'passport_number'}, {label:'Flight Number', value:'flight_number'}];
