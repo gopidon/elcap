@@ -1,6 +1,8 @@
 /**
  * Created by udemy.don on 2/18/17.
  */
+
+//graphcool login is udemy.don@gmail.com (google login, NOT github)
 const _Environments = {
     production:
     {

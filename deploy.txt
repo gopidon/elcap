@@ -1,7 +1,21 @@
-Login to Google Compute
+Login to Google Compute: 35.197.136.133
 Clone from bitbucket
 cd to elcap
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
+https://medium.com/google-cloud/node-to-google-cloud-compute-engine-in-25-minutes-7188830d884e
+$ sudo apt-get -y update
+$ sudo apt-get install -y nodejs npm
+$ sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo apt-get install -y nginx
+
+On Google Compute:
+
+Make IP Static (from ephemeral)
+For default allow http fire wall rule, allow all ports not just tcp:80
+
 npm install
+pm2 stop distServer
 npm run build
 ctrl C
 pm2 start ./src/distServer.js --interpreter ./node_modules/.bin/babel-node
@@ -10,7 +24,7 @@ server {
     listen 80;
     server_name your_domain.com;
     location / {
-        proxy_pass http://35.200.250.100 :3001
+        proxy_pass "http://35.197.136.133:8001";
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
